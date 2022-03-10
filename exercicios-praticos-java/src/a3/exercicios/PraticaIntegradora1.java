@@ -26,7 +26,10 @@ public class PraticaIntegradora1 {
                 {-1, 31},
                 {-10, 35}
         };
+        calculoPorVetoreMatriz(cidades, temperaturas);
+    }
 
+    private static void calculoPorVetoreMatriz(String[] cidades, int[][] temperaturas) {
         int iTempMaisAlta = 0, iTempMaisBaixa = 0;
 
         for (int i = 0; i < temperaturas.length; i++) {
