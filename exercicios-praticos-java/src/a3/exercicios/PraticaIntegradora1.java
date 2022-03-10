@@ -2,7 +2,8 @@ package a3.exercicios;
 
 public class PraticaIntegradora1 {
     public static void main(String[] args) {
-        String[] cidades = {"Londres",
+        String[] cidades = {
+                "Londres",
                 "Madrid",
                 "Nueva York",
                 "Buenos Aires",
@@ -11,7 +12,8 @@ public class PraticaIntegradora1 {
                 "Lima",
                 "Santiago de Chile",
                 "Lisboa",
-                "Tokio"};
+                "Tokio"
+        };
         int[][] temperaturas = {
                 {-2, 33},
                 {-3, 32},
@@ -26,18 +28,10 @@ public class PraticaIntegradora1 {
         };
 
         int iTempMaisAlta = 0, iTempMaisBaixa = 0;
-        int tempMaisAlta = temperaturas[0][1], tempMaisBaixa = temperaturas[0][0];
 
         for (int i = 0; i < temperaturas.length; i++) {
-            if(temperaturas[i][1] > tempMaisAlta) {
-                tempMaisAlta = temperaturas[i][1];
-                iTempMaisAlta = i;
-            }
-
-            if(temperaturas[i][0] < tempMaisBaixa) {
-                tempMaisBaixa = temperaturas[i][0];
-                iTempMaisBaixa = i;
-            }
+            iTempMaisAlta = temperaturas[i][1] > temperaturas[iTempMaisAlta][1] ? i : iTempMaisAlta;
+            iTempMaisBaixa = temperaturas[i][0] < temperaturas[iTempMaisBaixa][1] ? i : iTempMaisBaixa;
         }
 
         System.out.println("A temperatura mais alta foi em " + cidades[iTempMaisAlta] + ", com " + temperaturas[iTempMaisAlta][1] + "o C.");
