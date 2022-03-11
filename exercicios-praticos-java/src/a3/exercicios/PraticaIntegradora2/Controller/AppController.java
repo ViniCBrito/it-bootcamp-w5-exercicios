@@ -6,8 +6,6 @@ import a3.exercicios.PraticaIntegradora2.Model.ParticipanteModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class AppController {
     private List<CircuitoModel> categorias;
@@ -52,6 +50,7 @@ public class AppController {
         }
         quantidadesInscricoes++;
         this.inscricoes.put(quantidadesInscricoes, participante);
+        mensagem += "\nO número de inscrição é " + quantidadesInscricoes;
         return mensagem;
     }
 
