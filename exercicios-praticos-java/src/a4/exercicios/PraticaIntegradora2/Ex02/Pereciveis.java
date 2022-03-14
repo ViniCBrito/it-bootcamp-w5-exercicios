@@ -1,4 +1,4 @@
-package a5.exercicios.PraticaIntegradora2.Ex02;
+package a4.exercicios.PraticaIntegradora2.Ex02;
 
 public class Pereciveis extends Produto {
     private int diasParaVencer;
