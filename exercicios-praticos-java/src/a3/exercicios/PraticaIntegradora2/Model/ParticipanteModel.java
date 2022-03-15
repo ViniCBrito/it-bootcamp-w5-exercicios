@@ -66,4 +66,19 @@ public class ParticipanteModel {
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
+
+    @Override
+    public String toString() {
+        return "Participante {" +
+                "rg='" + rg + '\'' +
+                ", nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", idade=" + idade +
+                ", celular='" + celular + '\'' +
+                ", contatoEmergencia='" + contatoEmergencia + '\'' +
+                ", grupoSanguineo='" + grupoSanguineo + '\'' +
+                ", inscricaoAtiva=" + inscricaoAtiva +
+                ", idCategoria=" + idCategoria +
+                '}';
+    }
 }

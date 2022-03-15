@@ -4,25 +4,23 @@ import a3.exercicios.PraticaIntegradora2.Model.CircuitoModel;
 import a3.exercicios.PraticaIntegradora2.Model.ParticipanteModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AppController {
     private List<CircuitoModel> categorias;
-    private HashMap<Integer, ParticipanteModel> inscricoes;
-    private int quantidadesInscricoes;
+    private List<ParticipanteModel> inscricoes;
 
     public AppController() {
         this.categorias = new ArrayList<CircuitoModel>();
-        this.inscricoes = new HashMap<>();
-        this.quantidadesInscricoes = 0;
-
+        this.inscricoes = new ArrayList<>();
     }
 
-    public AppController(List<CircuitoModel> categorias, HashMap<Integer, ParticipanteModel> inscricoes, int quantidadesInscricoes) {
+    public AppController(List<CircuitoModel> categorias, List<ParticipanteModel> inscricoes, int quantidadesInscricoes) {
         this.categorias = categorias;
         this.inscricoes = inscricoes;
-        this.quantidadesInscricoes = quantidadesInscricoes;
     }
 
     public int adicionarCategoria(CircuitoModel categoria) {
@@ -48,25 +46,22 @@ public class AppController {
                 return "A inscrição não é permitida para menores de 18 anos para essa categoria.";
             }
         }
-        quantidadesInscricoes++;
-        this.inscricoes.put(quantidadesInscricoes, participante);
-        mensagem += "\nO número de inscrição é " + quantidadesInscricoes;
+        participante.setIdCategoria(idCategoria);
+        this.inscricoes.add(participante);
+        mensagem += "\nO número de inscrição é " + this.inscricoes.size();
         return mensagem;
     }
 
     public void cancelarInscricao(int numeroInscricao) {
-        ParticipanteModel participante = this.inscricoes.get(numeroInscricao);
+        ParticipanteModel participante = this.inscricoes.get(numeroInscricao-1);
         participante.setInscricaoAtiva(false);
-        this.inscricoes.put(numeroInscricao, participante);
+        this.inscricoes.set(numeroInscricao-1, participante);
     }
 
-    public ParticipanteModel[] listarPorCategoria(int idCategoria) {
-//        ParticipanteModel[] participantes
-//        for (Map.Entry<Integer, ParticipanteModel> entry : inscricoes.entrySet()) {
-//            ParticipanteModel participante = entry.getValue();
-//            int numeroInscricao = entry.getKey();
-//        }
-        return (ParticipanteModel[]) this.inscricoes.entrySet().stream().filter(x -> x.getValue().getIdCategoria() == idCategoria).toArray();
-//        return this.inscricoes.values().;
+    public List<ParticipanteModel> listarPorCategoria(int idCategoria) {
+        return this.inscricoes
+                        .stream()
+                        .filter(x -> x.getIdCategoria() == idCategoria && x.isInscricaoAtiva())
+                        . collect(Collectors.toList());
     }
 }

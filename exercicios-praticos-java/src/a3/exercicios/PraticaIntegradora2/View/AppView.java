@@ -132,7 +132,6 @@ public class AppView {
 
     private void listarInscritos() {
         int idCategoria;
-        ParticipanteModel[] inscritos = {};
         Scanner inInteger = new Scanner(System.in);
 
         System.out.println("--------------------------------------");
@@ -147,19 +146,16 @@ public class AppView {
             System.out.println("-                                    -");
         }
 
-        // TODO: Corrigir o retorno do método "listarPorCategoria" e implementar corretamente.
         try {
             System.out.print("Opção: ");
             idCategoria = inInteger.nextInt() - 1;
 
             System.out.println("-                                    -");
 
-            inscritos = this.app.listarPorCategoria(idCategoria);
+            this.app.listarPorCategoria(idCategoria).forEach(System.out::println);
         } catch (Exception e) {
             System.out.println("Não foi possível encontrar a categoria informada.");
             System.out.println("Verifique os dados informados e refaça a operação.");
         }
-
-        System.out.println(inscritos.toString());
     }
 }
