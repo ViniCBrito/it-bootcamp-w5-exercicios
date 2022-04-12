@@ -1,0 +1,1009 @@
+{
+	"info": {
+		"_postman_id": "658f10b9-a62a-4b36-898c-5b3d84260dfb",
+		"name": "A25-PI1 - QA Bugs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create new Test Case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Test Case 2\",\n    \"tested\": false,\n    \"passed\": true,\n    \"number_of_tries\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/testcases",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Case 1\",\n    \"tested\": false,\n    \"passed\": false,\n    \"numberOfTries\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Location",
+							"value": "http://localhost:8080/api/testcases/1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:07:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_case\": 1,\n    \"description\": \"Test Case 1\",\n    \"tested\": false,\n    \"passed\": false,\n    \"numberOfTries\": 0,\n    \"lastUpdate\": \"2022-04-12T12:07:39.544+00:00\"\n}"
+				},
+				{
+					"name": "Failed - \"Description\" can not be null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tested\": false,\n    \"passed\": false,\n    \"numberOfTries\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:09:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tipo\": \"Campo inválido.\",\n        \"mensagem\": \"O campo 'description' não pode ficar em branco/vazio.\"\n    }\n]"
+				},
+				{
+					"name": "Failed - \"Description\" can not be empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"\",\n    \"tested\": false,\n    \"passed\": false,\n    \"numberOfTries\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:10:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tipo\": \"Campo inválido.\",\n        \"mensagem\": \"O campo 'description' não pode ficar em branco/vazio.\"\n    }\n]"
+				},
+				{
+					"name": "Failed - \"Tested\" can not be null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Case 1\",\n    \"passed\": false,\n    \"numberOfTries\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:19:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tipo\": \"Campo inválido.\",\n        \"mensagem\": \"O campo 'tested' não pode ficar vazio.\"\n    }\n]"
+				},
+				{
+					"name": "Failed - \"Passed\" can not be null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Case 1\",\n    \"tested\": false,\n    \"numberOfTries\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:19:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tipo\": \"Campo inválido.\",\n        \"mensagem\": \"O campo 'passed' não pode ficar vazio.\"\n    }\n]"
+				},
+				{
+					"name": "Failed - \"Number Of Tries\" can not be null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Case 1\",\n    \"tested\": false,\n    \"passed\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:20:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tipo\": \"Campo inválido.\",\n        \"mensagem\": \"O campo 'numberOfTries' não pode ficar vazio.\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 12:20:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 1,\n        \"description\": \"Test Case 1\",\n        \"tested\": false,\n        \"passed\": false,\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"2022-04-12T12:20:39.096+00:00\"\n    },\n    {\n        \"id_case\": 2,\n        \"description\": \"Test Case 2\",\n        \"tested\": true,\n        \"passed\": false,\n        \"numberOfTries\": 1,\n        \"lastUpdate\": \"2022-04-12T12:20:52.971+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases Filtering By Description",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases?description=test",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases?description=1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "description",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:00:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 1,\n        \"description\": \"Test Case 1\",\n        \"tested\": false,\n        \"passed\": false,\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"2022-04-12T12:59:50.865+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases Filtering By Passed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases?passed=true",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "passed",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases?passed=true",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "passed",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:01:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 3,\n        \"description\": \"Test Case 3\",\n        \"tested\": true,\n        \"passed\": true,\n        \"numberOfTries\": 2,\n        \"lastUpdate\": \"2022-04-12T13:00:58.991+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases Filtering By Tested",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases?tested=false",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "tested",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases?tested=false",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "tested",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:01:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 1,\n        \"description\": \"Test Case 1\",\n        \"tested\": false,\n        \"passed\": false,\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"2022-04-12T12:59:50.865+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases Filtering By Number Of Tries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases?number_of_tries=0",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "number_of_tries",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases?number_of_tries=0",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "number_of_tries",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:01:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 1,\n        \"description\": \"Test Case 1\",\n        \"tested\": false,\n        \"passed\": false,\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"2022-04-12T12:59:50.865+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Testcases Filtering By Last Update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases?last_update='11/04/2022'",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "'11/04/2022'"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases?last_update=13/04/2022",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "last_update",
+									"value": "13/04/2022"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:26:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_case\": 1,\n        \"description\": \"Test Case 1\",\n        \"tested\": false,\n        \"passed\": false,\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"2022-04-12T13:26:00.897+00:00\"\n    },\n    {\n        \"id_case\": 2,\n        \"description\": \"Test Case 2\",\n        \"tested\": true,\n        \"passed\": false,\n        \"numberOfTries\": 1,\n        \"lastUpdate\": \"2022-04-12T13:26:05.445+00:00\"\n    },\n    {\n        \"id_case\": 3,\n        \"description\": \"Test Case 3\",\n        \"tested\": true,\n        \"passed\": true,\n        \"numberOfTries\": 2,\n        \"lastUpdate\": \"2022-04-12T13:26:10.788+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Test Case By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases/2",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases/2",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:02:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_case\": 2,\n    \"description\": \"Test Case 2\",\n    \"tested\": true,\n    \"passed\": false,\n    \"numberOfTries\": 1,\n    \"lastUpdate\": \"2022-04-12T12:59:55.592+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Test Case By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Test Case 3\",\n    \"tested\": true,\n    \"passed\": false,\n    \"number_of_tries\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/testcases/3",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucess",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Case 1\",\n    \"tested\": true,\n    \"passed\": true,\n    \"numberOfTries\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/testcases/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:02:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_case\": 1,\n    \"description\": \"Test Case 1\",\n    \"tested\": true,\n    \"passed\": true,\n    \"numberOfTries\": 5,\n    \"lastUpdate\": \"2022-04-12T13:02:35.358+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Test Case By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/testcases/1",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Done",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/testcases/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 12 Apr 2022 13:02:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
